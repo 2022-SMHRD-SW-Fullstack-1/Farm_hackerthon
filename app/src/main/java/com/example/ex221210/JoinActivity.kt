@@ -49,7 +49,7 @@ class JoinActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, let move to the next activity i.e MainActivity
 
-                    val intent = Intent(this, MainActivity::class.java)
+                    val intent = Intent(this, MainMapActivity::class.java)
                     startActivity(intent)
 
                     Toast.makeText(

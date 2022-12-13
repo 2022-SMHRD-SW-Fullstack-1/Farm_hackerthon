@@ -1,129 +1,87 @@
 package com.example.ex221210
 
-import android.Manifest
-import android.content.DialogInterface
-import android.content.pm.PackageManager
-import android.os.Bundle
-import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
+
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.app.ActivityCompat
-import androidx.core.content.ContextCompat
-import com.google.android.gms.maps.CameraUpdateFactory
-import com.google.android.gms.maps.GoogleMap
-import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
-import kotlin.properties.Delegates
+import android.os.Bundle
+import android.widget.FrameLayout
+import android.widget.ImageView
+import com.example.ex221210.fragment.*
+import com.example.ex221210.auth.IntroActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 
+class MainActivity : AppCompatActivity() {
 
-class MainActivity : AppCompatActivity(),OnMapReadyCallback  {
-
-    // googleMap 객체 전역변수 설정
-    lateinit var googleMap : GoogleMap
-    var lat by Delegates.notNull<Double>()
-    var lng by Delegates.notNull<Double>()
+    lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // activity_main.xml의 지도가 띄워진 Fragment 불러오기
-        val mapFragment = supportFragmentManager
-            .findFragmentById(R.id.map) as SupportMapFragment
-        mapFragment.getMapAsync(this)
+        // 어떤 item을 클릭했는지에 따라서 FrameLayout에 Fragment를 갈아끼워주기
+        auth = Firebase.auth
 
+        val fl = findViewById<FrameLayout>(R.id.fl)
+        val bnv = findViewById<BottomNavigationView>(R.id.bnv)
+        val imgLogout = findViewById<ImageView>(R.id.imgLogout)
 
-        lat = intent.getStringExtra("latitude")!!.toDouble()
-        lng = intent.getStringExtra("longitude")!!.toDouble()
-
-        Toast.makeText(this,"위도 : $lat / 경도 : $lng",Toast.LENGTH_LONG).show()
-
-
-    }
-
-    override fun onMapReady(p0: GoogleMap) {
-        // 전역변수로 설정해둔 객체에 값 넣기
-        this.googleMap = p0
-        // 원하는 위치의 위도경도 값 담아두기
-        val latLng = LatLng( lat,lng )
-        // 내가 정한 위도 경도를 중앙에 둔 지도 만들기
-        googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
-        // 지도 줌 조정
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo((16).toFloat()))
-        // 마커 더하기
-        var markerOptions : MarkerOptions = MarkerOptions().position(latLng).title("현 위치")
-        googleMap.addMarker(markerOptions)
-        // 마이로케이션 버튼 추가
-        // (버튼 클릭 시 나의 현재 위치로 지도의 중심을 옮겨주는 버튼)
-
-        if (ActivityCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) == PackageManager.PERMISSION_GRANTED
-        ) {
-            googleMap.isMyLocationEnabled = true
-        }else{
-            checkLocationPermissionWithRationale()
+        // 로그아웃 기능
+        imgLogout.setOnClickListener{
+            auth.signOut()
+            // 로그아웃 하고 나면 IntroActivity로 이동
+            val intent = Intent(this, IntroActivity::class.java)
+            // 이전에 쌓여있는 Activity를 모두 날려주기
+            // finish()는 하나만 날림
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
         }
-    }
 
+        // auth에 담겨있는 기능
+        // createUsersWithEmailandPassword : 회원가입 (email, pw)
+        // SingInWithEmailandPassword : 로그인(email, pw)
+        // SignInAnonymous : 익명로그인 ()
+        // singOut() : 로그아웃 (페이지를 이동하는 기능 X)
 
-    val MY_PERMISSIONS_REQUEST_LOCATION = 99
-
-    private fun checkLocationPermissionWithRationale() {
-        if (ContextCompat.checkSelfPermission(
-                this,
-                Manifest.permission.ACCESS_FINE_LOCATION
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            if (ActivityCompat.shouldShowRequestPermissionRationale(
-                    this,
-                    Manifest.permission.ACCESS_FINE_LOCATION
-                )
-            ) {
-                AlertDialog.Builder(this)
-                    .setTitle("위치정보")
-                    .setMessage("이 앱을 사용하기 위해서는 위치정보에 접근이 필요합니다. 위치정보 접근을 허용하여 주세요.")
-                    .setPositiveButton("확인",
-                        DialogInterface.OnClickListener { dialogInterface, i ->
-                            ActivityCompat.requestPermissions(
-                                this@MainActivity, arrayOf(
-                                    Manifest.permission.ACCESS_FINE_LOCATION
-                                ), MY_PERMISSIONS_REQUEST_LOCATION
-                            )
-                        }).create().show()
-            } else {
-                ActivityCompat.requestPermissions(
-                    this,
-                    arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
-                    MY_PERMISSIONS_REQUEST_LOCATION
-                )
-            }
-        }
-    }
-
-    fun onRequestPermissionsResult(
-        requestCode: Int,
-        permissions: ArrayList<String>,
-        grantResults: IntArray
-    ) {
-        when (requestCode) {
-            MY_PERMISSIONS_REQUEST_LOCATION -> {
-                if (grantResults.size > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                    if (ContextCompat.checkSelfPermission(
-                            this,
-                            Manifest.permission.ACCESS_FINE_LOCATION
-                        ) == PackageManager.PERMISSION_GRANTED
-                    ) {
-                        googleMap.isMyLocationEnabled = true
-                    }
-                } else {
-                    Toast.makeText(this, "permission denied", Toast.LENGTH_LONG).show()
+        bnv.setOnItemSelectedListener { item ->
+            // item : 내가 클릭한 item 정보
+            when(item.itemId){
+                R.id.tab1 ->{
+                    // Fragment1 부분화면으로 fl에 갈아끼워줌
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+                        Fragment1()
+                    ).commit()
                 }
-                return
+                R.id.tab2 ->{
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+                        Fragment2()
+                    ).commit()
+                }
+                R.id.tab3 ->{
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+                        Fragment3()
+                    ).commit()
+                }
+                R.id.tab4 ->{
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+                        Fragment4()
+                    ).commit()
+                }
+                R.id.tab5 ->{
+                    supportFragmentManager.beginTransaction().replace(
+                        R.id.fl,
+              //        Fragment5()
+                       ChatFragment()
+                    ).commit()
+                }
             }
+            true
         }
     }
 }

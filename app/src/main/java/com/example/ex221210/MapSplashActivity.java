@@ -171,7 +171,7 @@ public class MapSplashActivity extends AppCompatActivity {
             latitude = locationResult.getLastLocation().getLatitude();
             fusedLocationProviderClient.removeLocationUpdates(locationCallback);
 
-            Intent intent = new Intent(MapSplashActivity.this, MainActivity.class);
+            Intent intent = new Intent(MapSplashActivity.this, MainMapActivity.class);
             intent.putExtra("latitude", String.valueOf(latitude));
             intent.putExtra("longitude", String.valueOf(longitude));
 

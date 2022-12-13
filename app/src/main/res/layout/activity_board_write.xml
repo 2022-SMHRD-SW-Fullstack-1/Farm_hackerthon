@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".board.BoardWriteActivity">
+
+    <EditText
+        android:id="@+id/etTitle"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="16dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:hint="제목을 입력하세요"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/etContent"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="16dp"
+        android:background="@android:color/transparent"
+        android:ems="10"
+        android:hint="내용을 입력하세요"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/etTitle"
+        app:layout_constraintStart_toStartOf="@+id/etTitle"
+        app:layout_constraintTop_toBottomOf="@+id/etTitle" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="갤러리에서 사진 추가"
+        app:layout_constraintEnd_toEndOf="@+id/imgLoad"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="@+id/imgLoad"
+        app:layout_constraintTop_toBottomOf="@+id/imgLoad" />
+
+    <ImageView
+        android:id="@+id/imgLoad"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintStart_toStartOf="@+id/etContent"
+        app:layout_constraintTop_toBottomOf="@+id/etContent"
+        app:srcCompat="@drawable/addimg" />
+
+    <ImageView
+        android:id="@+id/imgWrite"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imgPicture"
+        app:srcCompat="@drawable/pencil" />
+
+    <ImageView
+        android:id="@+id/imgPicture"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgLoad"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imgLoad"
+        app:layout_constraintTop_toTopOf="@+id/imgLoad"
+        app:srcCompat="@drawable/addimg" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="사진 찍어서 추가"
+        app:layout_constraintEnd_toEndOf="@+id/imgPicture"
+        app:layout_constraintStart_toStartOf="@+id/imgPicture"
+        app:layout_constraintTop_toBottomOf="@+id/imgPicture" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

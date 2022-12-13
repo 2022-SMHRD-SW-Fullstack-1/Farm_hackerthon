@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import java.util.zip.Inflater
 
 class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val loginId:String) : RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
 
@@ -29,7 +28,7 @@ class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val login
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val layoutInflater = LayoutInflater.from(context)
-        var view = layoutInflater.inflate(R.layout.sj_chat_list,null)
+        var view = layoutInflater.inflate(R.layout.chat_list,null)
         return ViewHolder(view)
     }
 
