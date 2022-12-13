@@ -1,0 +1,98 @@
+{
+  "project_info": {
+    "project_number": "136030158221",
+    "firebase_url": "https://handfarm-f4e9c-default-rtdb.firebaseio.com",
+    "project_id": "handfarm-f4e9c",
+    "storage_bucket": "handfarm-f4e9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136030158221:android:68d22d58c6e0188f0091c4",
+        "android_client_info": {
+          "package_name": "com.example.ex221210"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136030158221-dgo1ntjtvhq7s01po3lq4f4ak2l0h8gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-IUczGF7sRzjK_RjzXQtiE2V4fkn7Zho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136030158221-dgo1ntjtvhq7s01po3lq4f4ak2l0h8gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136030158221:android:1ea7a1dcdcb4a0590091c4",
+        "android_client_info": {
+          "package_name": "com.example.handfarm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136030158221-dgo1ntjtvhq7s01po3lq4f4ak2l0h8gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-IUczGF7sRzjK_RjzXQtiE2V4fkn7Zho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136030158221-dgo1ntjtvhq7s01po3lq4f4ak2l0h8gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:136030158221:android:983816fece2c0ada0091c4",
+        "android_client_info": {
+          "package_name": "com.example.project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "136030158221-dgo1ntjtvhq7s01po3lq4f4ak2l0h8gj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-IUczGF7sRzjK_RjzXQtiE2V4fkn7Zho"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "136030158221-dgo1ntjtvhq7s01po3lq4f4ak2l0h8gj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
