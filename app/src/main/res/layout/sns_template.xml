@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp">
+
+    <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="내 정원 자랑"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgMain"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/tvMain"
+        app:layout_constraintTop_toBottomOf="@+id/tvMain"
+        app:srcCompat="@drawable/garden" />
+
+    <ImageView
+        android:id="@+id/imgHeart"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="@+id/imgMain"
+        app:layout_constraintTop_toBottomOf="@+id/imgMain"
+        app:srcCompat="@drawable/ic_favorite_border" />
+
+    <ImageView
+        android:id="@+id/imgMark"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgTalk"
+        app:layout_constraintStart_toEndOf="@+id/imgTalk"
+        app:layout_constraintTop_toTopOf="@+id/imgTalk"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/bookmark_white" />
+
+    <ImageView
+        android:id="@+id/imgTalk"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imgHeart"
+        app:layout_constraintStart_toEndOf="@+id/imgHeart"
+        app:layout_constraintTop_toTopOf="@+id/imgHeart"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/ic_chat_black" />
+
+    <TextView
+        android:id="@+id/tvTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="2022.12.13"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="@+id/imgHeart"
+        app:layout_constraintTop_toBottomOf="@+id/imgHeart" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
