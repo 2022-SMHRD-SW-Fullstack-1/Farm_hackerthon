@@ -14,6 +14,9 @@ class FBdatabase {
         fun getBoardRef() : DatabaseReference{
             return database.getReference("board")
         }
+        fun getSnsRef() : DatabaseReference{
+            return database.getReference("sns")
+        }
         fun getContentRef() : DatabaseReference{
             return database.getReference("content")
         }

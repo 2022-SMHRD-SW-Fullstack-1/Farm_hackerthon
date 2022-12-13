@@ -50,8 +50,8 @@ class SnsWriteActivity : AppCompatActivity() {
             val time = FBAuth.getTime()
             // 실제 데이터를 넣어주자
             //setValue가 되기전에 미리 BoardVO가 저장될 key값(uid_)을 만들자
-            var key = FBdatabase.getBoardRef().push().key.toString()
-            FBdatabase.getBoardRef().child(key).setValue(SnsVO(title, content, uid, time))
+            var key = FBdatabase.getSnsRef().push().key.toString()
+            FBdatabase.getSnsRef().child(key).setValue(SnsVO(title, content, uid, time))
             imgUpload(key)
             finish()//이전 페이지로 돌아가기
         }
