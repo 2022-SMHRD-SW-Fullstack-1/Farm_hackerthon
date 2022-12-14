@@ -100,7 +100,7 @@ class Fragment4 : Fragment() {
 
         }
         //board에 있는 모든~~ 데이터가 들어간다~
-        FBdatabase.getBoardRef().addValueEventListener(postListener)
+        FBdatabase.getSnsRef().addValueEventListener(postListener)
     }
 
 }

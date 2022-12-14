@@ -55,12 +55,13 @@ class BoardAdapter(var context: Context, var boardList: ArrayList<BoardVO>)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        // 제목, 내용, 시간 넣음
         holder.tvRvTitle.text = boardList[position].title
         holder.tvRvContent.text = boardList[position].content
         holder.tvRvTime.text = boardList[position].time
     }
 
     override fun getItemCount(): Int {
-        return boardList.size // 항목의 갯수
+        return boardList.size // 항목의 갯수 반환
     }
 }
