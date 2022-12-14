@@ -39,6 +39,15 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
+
+        // 초기화면 Fragment1로 설정
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fl,
+            Fragment1()
+        ).commit()
+        
+        
+
         // auth에 담겨있는 기능
         // createUsersWithEmailandPassword : 회원가입 (email, pw)
         // SingInWithEmailandPassword : 로그인(email, pw)
