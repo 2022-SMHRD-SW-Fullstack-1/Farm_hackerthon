@@ -26,9 +26,9 @@ class SnsWriteActivity : AppCompatActivity() {
 
         //id 값 찾아오기
         imgLoad = findViewById(R.id.imgload)
-        val etTitle = findViewById<EditText>(R.id.etTitle)
-        val etContent = findViewById<EditText>(R.id.etContent)
-        val imgWrite = findViewById<ImageView>(R.id.imgWrite)
+        val etTitle = findViewById<EditText>(R.id.etEditTitle)
+        val etContent = findViewById<EditText>(R.id.etEditContent)
+        val imgWrite = findViewById<ImageView>(R.id.imgEditWrite)
 
         //갤러리로 이동해서 이미지를 받아오는
         imgLoad.setOnClickListener {
