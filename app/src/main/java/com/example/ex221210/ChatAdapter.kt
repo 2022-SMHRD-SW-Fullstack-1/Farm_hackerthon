@@ -45,14 +45,21 @@ class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val login
             holder.tvChatOtherMsg.visibility = View.GONE
 
             holder.tvChatMyMsg.visibility = View.VISIBLE
+//            holder.tvChatMyMsg.setBackgroundResource(R.drawable.rightbubble)
             // VISIBLE인 값은 설정해주자
             holder.tvChatMyMsg.setText(chatList.get(position).msg)
+
+
+
+
         }else{
             // 다른 사람이 보낸 메세지
             // 이미지 , 이름 , 회색 메세지가 보이도록 설정
             holder.imgChat.visibility = View.VISIBLE
             holder.tvChatOtherName.visibility = View.VISIBLE
             holder.tvChatOtherMsg.visibility = View.VISIBLE
+
+//            holder.tvChatOtherMsg.setBackgroundResource(R.drawable.leftbubble)
             // VISIBLE인 값은 설정해주자
             holder.imgChat.setImageResource(R.drawable.img_contact1)
             holder.tvChatOtherName.setText(chatList.get(position).name)

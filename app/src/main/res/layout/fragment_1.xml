@@ -4,55 +4,58 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#551B1B"
+    android:background="#FFFFFF"
     tools:context=".fragment.Fragment1">
 
-<!--    <TextView-->
-<!--        android:id="@+id/textView"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="50dp"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        android:gravity="bottom|center_horizontal"-->
-<!--        android:text="토마토"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:textSize="32sp" />-->
+    <!--    <TextView-->
+    <!--        android:id="@+id/textView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="50dp"-->
+    <!--        android:background="@android:color/transparent"-->
+    <!--        android:gravity="bottom|center_horizontal"-->
+    <!--        android:text="토마토"-->
+    <!--        android:textColor="#FFFFFF"-->
+    <!--        android:textSize="32sp" />-->
 
-<!--    <com.airbnb.lottie.LottieAnimationView-->
-<!--        android:id="@+id/animationView2"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="451dp"-->
-<!--        android:layout_marginTop="100dp"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        app:lottie_autoPlay="true"-->
-<!--        app:lottie_loop="false"-->
-<!--        app:lottie_rawRes="@raw/plant_loding"-->
-<!--        app:lottie_speed="0.4" />-->
-
-
-<!--    <com.airbnb.lottie.LottieAnimationView-->
-<!--        android:id="@+id/animationView"-->
-<!--        android:layout_width="316dp"-->
-<!--        android:layout_height="304dp"-->
-<!--        android:layout_marginLeft="50dp"-->
-<!--        android:layout_marginTop="150dp"-->
-<!--        android:scaleType="centerCrop"-->
-<!--        app:lottie_autoPlay="true"-->
-<!--        app:lottie_loop="false"-->
-<!--        app:lottie_rawRes="@raw/plant5" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/tvPercent"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:layout_marginTop="50dp"-->
-<!--        android:gravity="center_horizontal|top"-->
-<!--        android:text="0%"-->
-<!--        android:textColor="#FFFFFF"-->
-<!--        android:textSize="24sp" />-->
-<!--    애니메이션 이미지-->
+    <!--    <com.airbnb.lottie.LottieAnimationView-->
+    <!--        android:id="@+id/animationView2"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="451dp"-->
+    <!--        android:layout_marginTop="100dp"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        app:lottie_autoPlay="true"-->
+    <!--        app:lottie_loop="false"-->
+    <!--        app:lottie_rawRes="@raw/plant_loding"-->
+    <!--        app:lottie_speed="0.4" />-->
 
 
+    <!--    <com.airbnb.lottie.LottieAnimationView-->
+    <!--        android:id="@+id/animationView"-->
+    <!--        android:layout_width="316dp"-->
+    <!--        android:layout_height="304dp"-->
+    <!--        android:layout_marginLeft="50dp"-->
+    <!--        android:layout_marginTop="150dp"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        app:lottie_autoPlay="true"-->
+    <!--        app:lottie_loop="false"-->
+    <!--        app:lottie_rawRes="@raw/plant5" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/tvPercent"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="50dp"-->
+    <!--        android:gravity="center_horizontal|top"-->
+    <!--        android:text="0%"-->
+    <!--        android:textColor="#FFFFFF"-->
+    <!--        android:textSize="24sp" />-->
+    <!--    애니메이션 이미지-->
 
 
-
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/background2" />
 </FrameLayout>

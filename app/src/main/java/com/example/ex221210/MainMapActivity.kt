@@ -2,6 +2,7 @@ package com.example.ex221210
 
 import android.Manifest
 import android.content.DialogInterface
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Toast
@@ -9,8 +10,10 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.ex221210.fragment.Fragment3
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
+import com.google.android.gms.maps.GoogleMap.OnMarkerClickListener
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
@@ -38,8 +41,6 @@ class MainMapActivity : AppCompatActivity(),OnMapReadyCallback  {
         lat = intent.getStringExtra("latitude")!!.toDouble()
         lng = intent.getStringExtra("longitude")!!.toDouble()
 
-        Toast.makeText(this,"위도 : $lat / 경도 : $lng",Toast.LENGTH_LONG).show()
-
 
     }
 
@@ -47,14 +48,56 @@ class MainMapActivity : AppCompatActivity(),OnMapReadyCallback  {
         // 전역변수로 설정해둔 객체에 값 넣기
         this.googleMap = p0
         // 원하는 위치의 위도경도 값 담아두기
+
+        // 지도 줌이 이상해서 일단 만들어 놓음
+        val latLngMinus = LatLng(lat-0.055,lng)
+
         val latLng = LatLng( lat,lng )
+        val latLng1 = LatLng( lat+0.001,lng+0.001 )
+        val latLng2 = LatLng( lat-0.01,lng-0.0011 )
+        val latLng3 = LatLng( lat-0.002,lng-0.003 )
+        val latLng4 = LatLng( lat-0.0025,lng+0.0011 )
         // 내가 정한 위도 경도를 중앙에 둔 지도 만들기
         googleMap.moveCamera(CameraUpdateFactory.newLatLng(latLng))
         // 지도 줌 조정
-        googleMap.moveCamera(CameraUpdateFactory.zoomTo((16).toFloat()))
-        // 마커 더하기
-        var markerOptions : MarkerOptions = MarkerOptions().position(latLng).title("현 위치")
-        googleMap.addMarker(markerOptions)
+        googleMap.moveCamera(CameraUpdateFactory.zoomTo((15).toFloat()))
+//         마커 더하기
+//        var markerOptions : MarkerOptions = MarkerOptions().position(latLng).title("현 위치")
+        var markerOptions1 : MarkerOptions = MarkerOptions().position(latLng1).title("성준 농장 ★4.5").snippet("대표 작물 : 토마토")
+        var markerOptions2 : MarkerOptions = MarkerOptions().position(latLng2).title("정우 농장 ★4.5").snippet("대표 작물 : 양배추")
+        var markerOptions3 : MarkerOptions = MarkerOptions().position(latLng3).title("혜원 농장 ★4.5").snippet("대표 작물 : 상추")
+        var markerOptions4 : MarkerOptions = MarkerOptions().position(latLng4).title("연주 농장 ★4.5").snippet("대표 작물 : 당근")
+
+
+//        googleMap.addMarker(markerOptions)
+        googleMap.addMarker(markerOptions1)
+        googleMap.addMarker(markerOptions2)
+        googleMap.addMarker(markerOptions3)
+        googleMap.addMarker(markerOptions4)
+
+
+//  마커클릭 이벤트
+//        googleMap.setOnMarkerClickListener(OnMarkerClickListener { marker -> // on marker click we are getting the title of our marker
+//            // which is clicked and displaying it in a toast message.
+//            val markerName: String = marker.title.toString()
+//            Toast.makeText(this, "Clicked location is $markerName", Toast.LENGTH_SHORT)
+//                .show()
+//            false
+//        })
+        
+//        마커 타이틀 클릭 이벤트
+        googleMap.setOnInfoWindowClickListener { marker ->
+
+            val markerName: String = (marker.title.toString()).substring(0,5)
+
+            var intent = Intent(this,FarmActivity::class.java)
+            intent.putExtra("farm",markerName)
+            startActivity(intent)
+
+            false
+        }
+
+
         // 마이로케이션 버튼 추가
         // (버튼 클릭 시 나의 현재 위치로 지도의 중심을 옮겨주는 버튼)
 
@@ -68,6 +111,8 @@ class MainMapActivity : AppCompatActivity(),OnMapReadyCallback  {
             checkLocationPermissionWithRationale()
         }
     }
+
+
 
 
     val MY_PERMISSIONS_REQUEST_LOCATION = 99
@@ -107,7 +152,7 @@ class MainMapActivity : AppCompatActivity(),OnMapReadyCallback  {
     fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: ArrayList<String>,
-        grantResults: IntArray
+        grantResults: IntArray,
     ) {
         when (requestCode) {
             MY_PERMISSIONS_REQUEST_LOCATION -> {

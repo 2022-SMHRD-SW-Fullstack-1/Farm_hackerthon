@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".comment.CommentEditActivity">
+
+    <!-- 앱바 -->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/black"
+        android:padding="10dp">
+
+        <!-- 제목 -->
+        <TextView
+            android:id="@+id/commentEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="수정하기"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!-- 뒤로가기 버튼 -->
+        <ImageView
+            android:id="@+id/backBtn"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:contentDescription="뒤로가기"
+            android:src="@drawable/back56sub"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/appBar">
+
+            <!-- 내용 -->
+            <EditText
+                android:id="@+id/commentMainArea"
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:layout_marginVertical="5dp"
+                android:padding="10dp"
+                android:background="@color/white"
+                android:gravity="top"
+                android:inputType="text"
+                android:hint="내용"
+                android:textSize="18sp"
+                android:importantForAutofill="no" />
+
+            <!-- 수정 버튼 -->
+            <Button
+                android:id="@+id/commentEditBtn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="5dp"
+                android:text="수정하기"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <!-- 삭제 버튼 -->
+            <Button
+                android:id="@+id/commentDeleteBtn"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginVertical="5dp"
+                android:text="삭제하기"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

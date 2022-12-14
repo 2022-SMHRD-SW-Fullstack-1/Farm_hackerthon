@@ -17,6 +17,9 @@ class FBdatabase {
         fun getSnsRef() : DatabaseReference{
             return database.getReference("sns")
         }
+        fun commentRef() : DatabaseReference{
+            return database.getReference("comment")
+        }
         fun getContentRef() : DatabaseReference{
             return database.getReference("content")
         }

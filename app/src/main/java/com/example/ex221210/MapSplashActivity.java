@@ -175,8 +175,6 @@ public class MapSplashActivity extends AppCompatActivity {
             intent.putExtra("latitude", String.valueOf(latitude));
             intent.putExtra("longitude", String.valueOf(longitude));
 
-            Toast.makeText(MapSplashActivity.this, ""+latitude+""+longitude, Toast.LENGTH_SHORT).show();
-
             startActivity(intent);
             finish();
         }

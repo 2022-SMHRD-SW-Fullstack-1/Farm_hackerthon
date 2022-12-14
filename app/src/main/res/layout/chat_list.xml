@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
+
+
+<!--    <de.hdodenhof.circleimageview.CircleImageView-->
+<!--        android:id="@+id/circle_iv"-->
+<!--        android:layout_width="300dp"-->
+<!--        android:layout_height="300dp"-->
+<!--        android:layout_gravity="center"-->
+<!--        android:background="@android:color/transparent"-->
+<!--        app:civ_border_overlay="true"-->
+<!--        app:civ_border_width="5dp"-->
+<!--        app:civ_border_color="#000000"-->
+<!--        android:src="@drawable/test_img"-->
+<!--        />-->
 
     <ImageView
         android:id="@+id/imgChat"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
@@ -22,30 +36,36 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:text="상대방"
-        android:textSize="24sp"
+        android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/imgChat"
         app:layout_constraintTop_toTopOf="@+id/imgChat" />
 
     <TextView
         android:id="@+id/tvChatOtherMsg"
-        android:layout_width="264dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:background="#DCDCDC"
-        android:text="ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/left_talk"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="ㅎㅎㅎㅎㅎㅎㅎㅎ"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/tvChatOtherName"
         app:layout_constraintTop_toBottomOf="@+id/tvChatOtherName" />
 
     <TextView
         android:id="@+id/tvChatMyMsg"
-        android:layout_width="280dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#A3FF62"
-        android:text="ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:background="@drawable/right_talk"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:text="ㅎㅎㅎㅎ"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView13"
