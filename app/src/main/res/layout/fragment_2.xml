@@ -5,6 +5,7 @@
     android:id="@+id/frameLayout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#EDEDED"
     tools:context=".fragment.Fragment2">
 
     <LinearLayout
@@ -28,71 +29,56 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:id="@+id/cvFruit"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                app:cardCornerRadius="30dp">
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:id="@+id/imageView4"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_vertical"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/fruit" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView15"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="22dp"
+                        android:fontFamily="@font/gmarket_sans_light"
+                        android:text="과일 농장 가기"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView41"
+                        android:layout_width="323dp"
+                        android:layout_height="103dp"
+                        android:layout_marginEnd="160dp"
+                        android:src="@drawable/fruits"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-<!--            <de.hdodenhof.circleimageview.CircleImageView-->
-<!--                android:id="@+id/circle_iv"-->
-<!--                android:layout_width="150dp"-->
-<!--                android:layout_height="150dp"-->
-<!--                android:layout_gravity="center_vertical"-->
-<!--                android:background="@android:color/transparent"-->
-<!--                app:civ_border_overlay="true"-->
-<!--                app:civ_border_width="5dp"-->
-<!--                app:civ_border_color="#000000"-->
-<!--                android:src="@drawable/fruit"-->
-<!--                />-->
+            <!--            <de.hdodenhof.circleimageview.CircleImageView-->
+            <!--                android:id="@+id/circle_iv"-->
+            <!--                android:layout_width="150dp"-->
+            <!--                android:layout_height="150dp"-->
+            <!--                android:layout_gravity="center_vertical"-->
+            <!--                android:background="@android:color/transparent"-->
+            <!--                app:civ_border_overlay="true"-->
+            <!--                app:civ_border_width="5dp"-->
+            <!--                app:civ_border_color="#000000"-->
+            <!--                android:src="@drawable/fruit"-->
+            <!--                />-->
 
-
-
-
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView15"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gmarket_sans_bold"
-                    android:gravity="center"
-                    android:text="과일 농장"
-                    android:textColor="#000000"
-                    android:textSize="32sp" />
-
-                <Button
-                    android:id="@+id/btnFruit"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/radius"
-                    android:backgroundTint="@color/sjMainColor"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:text=" 주변 농장 보기 "
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold" />
-
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -103,52 +89,43 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:id="@+id/cvVegi"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                app:cardCornerRadius="30dp">
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:id="@+id/imageView6"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_vertical"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/vegi" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageView
+                        android:id="@+id/imageView5"
+                        android:layout_width="323dp"
+                        android:layout_height="103dp"
+                        android:layout_marginEnd="160dp"
+                        android:src="@drawable/vegi2"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView14"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="22dp"
+                        android:fontFamily="@font/gmarket_sans_light"
+                        android:text="채소 농장 가기"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView16"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gmarket_sans_bold"
-                    android:gravity="center"
-                    android:text="채소 농장"
-                    android:textColor="#000000"
-                    android:textSize="32sp" />
-
-                <Button
-                    android:id="@+id/btnVegi"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/radius"
-                    android:backgroundTint="@color/sjMainColor"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:text=" 주변 농장 보기 "
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold" />
-            </LinearLayout>
 
         </LinearLayout>
 
@@ -159,53 +136,98 @@
             android:orientation="horizontal">
 
             <androidx.cardview.widget.CardView
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:id="@+id/cvFlower"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
                 android:layout_gravity="center_vertical"
                 android:layout_marginLeft="16dp"
-                app:cardCornerRadius="30dp">
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="10dp">
 
-                <ImageView
-                    android:id="@+id/imageView7"
-                    android:layout_width="150dp"
-                    android:layout_height="150dp"
-                    android:layout_gravity="center_vertical"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/flower" />
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textView16"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="22dp"
+                        android:fontFamily="@font/gmarket_sans_light"
+                        android:text="꽃 농장 가기"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView4"
+                        android:layout_width="323dp"
+                        android:layout_height="130dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_marginEnd="160dp"
+                        android:rotation="55"
+                        android:src="@drawable/flower20"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
-            <LinearLayout
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cvTree"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="100dp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:cardCornerRadius="10dp">
 
-                <TextView
-                    android:id="@+id/textView17"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/gmarket_sans_bold"
-                    android:gravity="center"
-                    android:text="꽃 농장"
-                    android:textColor="#000000"
-                    android:textSize="32sp" />
+                    android:layout_height="match_parent">
 
-                <Button
-                    android:id="@+id/btnFlower"
-                    android:layout_width="wrap_content"
-                    android:layout_height="35dp"
-                    android:layout_gravity="bottom|right"
-                    android:layout_marginRight="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:background="@drawable/radius"
-                    android:backgroundTint="@color/sjMainColor"
-                    android:paddingLeft="8dp"
-                    android:paddingRight="8dp"
-                    android:text=" 주변 농장 보기 "
-                    android:textColor="#FFFFFF"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/textView17"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="22dp"
+                        android:fontFamily="@font/gmarket_sans_light"
+                        android:text="묘목 농장 가기"
+                        android:textColor="#000000"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView42"
+                        android:layout_width="323dp"
+                        android:layout_height="140dp"
+                        android:layout_marginEnd="160dp"
+                        android:layout_marginBottom="10dp"
+                        android:rotation="-21"
+                        android:rotationY="178"
+                        android:src="@drawable/tree1"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
 
         </LinearLayout>
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

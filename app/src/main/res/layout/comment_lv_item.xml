@@ -64,7 +64,7 @@
                 android:layout_height="30dp"
                 android:layout_marginTop="10dp"
                 android:layout_gravity="center"
-                android:src="@drawable/cog56"
+                android:src="@drawable/icon_toothed_wheel"
                 android:contentDescription="내 댓글" />
 
             <!-- 내가 쓴 글 -->

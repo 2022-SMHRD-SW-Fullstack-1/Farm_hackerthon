@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context="com.example.ex221210.board.BoardInsideActivity">
 
     <TextView
@@ -11,12 +12,13 @@
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="8dp"
+        android:background="#EDEDED"
         android:gravity="center"
         android:text="TextView"
         android:textColor="#000000"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,17 +26,21 @@
         android:id="@+id/tvInTime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginStart="16dp"
         android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/imgIn"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvInTitle" />
 
     <TextView
         android:id="@+id/tvInContent"
         android:layout_width="0dp"
-        android:layout_height="150dp"
+        android:layout_height="100dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
         android:text="TextView"
+        android:textColor="#000000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="@+id/imgIn"
         app:layout_constraintStart_toStartOf="@+id/imgIn"
         app:layout_constraintTop_toBottomOf="@+id/imgIn" />
@@ -42,30 +48,36 @@
     <ImageView
         android:id="@+id/imgIn"
         android:layout_width="0dp"
-        android:layout_height="200dp"
+        android:layout_height="260dp"
+        android:layout_marginTop="40dp"
+        android:padding="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvInTime"
-        app:srcCompat="@drawable/newyork" />
+        app:layout_constraintTop_toBottomOf="@+id/tvInTitle"
+        app:srcCompat="@drawable/white_back" />
+
+    <!-- 댓글 영역 -->
 
     <Button
         android:id="@+id/btnEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#EDEDED"
         android:text="글 수정"
-        app:layout_constraintBottom_toBottomOf="@+id/tvInTitle"
+        app:layout_constraintBottom_toBottomOf="@+id/btnDelete"
         app:layout_constraintEnd_toStartOf="@+id/btnDelete"
-        app:layout_constraintTop_toTopOf="@+id/tvInTitle" />
+        app:layout_constraintTop_toTopOf="@+id/btnDelete" />
 
     <Button
         android:id="@+id/btnDelete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="0dp"
+        android:backgroundTint="#EDEDED"
         android:text="글 삭제"
-        app:layout_constraintBottom_toBottomOf="@+id/btnEdit"
+        app:layout_constraintBottom_toTopOf="@+id/imgIn"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/btnEdit" />
-    <!-- 댓글 영역 -->
+        app:layout_constraintTop_toBottomOf="@+id/tvInTitle" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -105,7 +117,7 @@
             android:layout_height="46dp"
             android:contentDescription="댓글 작성"
             android:padding="10dp"
-            android:src="@drawable/btnwrite" />
+            android:src="@drawable/icon_sns" />
 
     </LinearLayout>
 
@@ -122,6 +134,7 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="#EDEDED"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/tvInContent"
         app:layout_constraintStart_toStartOf="@+id/tvInContent"
@@ -132,6 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="댓글"
+            android:textColor="#000000"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -143,7 +157,7 @@
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="5dp"
             android:text="0"
-            android:textColor="@color/black"
+            android:textColor="#000000"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="@+id/textView2"

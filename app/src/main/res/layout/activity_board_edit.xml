@@ -15,9 +15,9 @@
         android:ems="10"
         android:hint="제목을 입력하세요"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintEnd_toEndOf="@+id/tvMainTitle"
+        app:layout_constraintStart_toStartOf="@+id/tvMainTitle"
+        app:layout_constraintTop_toBottomOf="@+id/tvMainTitle" />
 
     <EditText
         android:id="@+id/etEditContent"
@@ -53,7 +53,7 @@
         app:srcCompat="@drawable/pencil" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/tvMainTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:fontFamily="@font/playfairdisplaybold"

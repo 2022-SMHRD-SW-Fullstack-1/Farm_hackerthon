@@ -72,7 +72,6 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this){task->
                     if(task.isSuccessful == true){
                         // 로그인에 성공
-                        Toast.makeText(this,"성공", Toast.LENGTH_SHORT).show()
 
                         // 자동로그인 기능
                         val editor = sharedPreferences.edit()
@@ -97,9 +96,6 @@ class LoginActivity : AppCompatActivity() {
                     }
                 }
 
-
-            Toast.makeText(this,"이메일 : ${email} / 비밀번호 : ${pw}",
-                Toast.LENGTH_SHORT).show()
 
         }
 

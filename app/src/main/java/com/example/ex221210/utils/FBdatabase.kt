@@ -11,6 +11,14 @@ class FBdatabase {
         val database = Firebase.database
 
         // FBdatabase.getBoardRef()
+        fun getMemberRef() : DatabaseReference {
+            return database.getReference("member")
+        }
+        fun getUserImg(){
+        }
+        fun getAllBoardRef() : DatabaseReference{
+            return database.getReference("allboard")
+        }
         fun getBoardRef() : DatabaseReference{
             return database.getReference("board")
         }

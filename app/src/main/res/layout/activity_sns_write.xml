@@ -4,39 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sns.SnsWriteActivity">
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="이미지 추가"
-        app:layout_constraintEnd_toEndOf="@+id/imgload"
-        app:layout_constraintStart_toStartOf="@+id/imgload"
-        app:layout_constraintTop_toBottomOf="@+id/imgload" />
-
-    <ImageView
-        android:id="@+id/imgload"
-        android:layout_width="0dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etEditContent"
-        app:srcCompat="@drawable/plusbtn" />
-
-    <ImageView
-        android:id="@+id/imgEditWrite"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/imgload"
-        app:srcCompat="@drawable/btnwrite" />
+    tools:context=".board.BoardWriteActivity">
 
     <EditText
-        android:id="@+id/etEditTitle"
+        android:id="@+id/etSnsTitle"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginStart="16dp"
@@ -44,24 +15,43 @@
         android:layout_marginEnd="16dp"
         android:background="@android:color/transparent"
         android:ems="10"
-        android:hint="제목을 입력해주세요"
+        android:hint="제목을 입력하세요"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/etEditContent"
+        android:id="@+id/etSnsContent"
         android:layout_width="0dp"
         android:layout_height="60dp"
         android:layout_marginTop="16dp"
         android:background="@android:color/transparent"
         android:ems="10"
-        android:hint="내용을입력해주세요"
+        android:hint="내용을 입력하세요"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/etEditTitle"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/etEditTitle"
-        app:layout_constraintTop_toBottomOf="@+id/etEditTitle" />
+        app:layout_constraintEnd_toEndOf="@+id/etSnsTitle"
+        app:layout_constraintStart_toStartOf="@+id/etSnsTitle"
+        app:layout_constraintTop_toBottomOf="@+id/etSnsTitle" />
+
+    <ImageView
+        android:id="@+id/imgSnsLoad"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintEnd_toEndOf="@+id/etSnsContent"
+        app:layout_constraintStart_toStartOf="@+id/etSnsContent"
+        app:layout_constraintTop_toBottomOf="@+id/etSnsContent"
+        app:srcCompat="@drawable/ic_photo" />
+
+    <ImageView
+        android:id="@+id/imgSnsWrite"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_write" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/tab1"
-        android:icon="@drawable/farm_house"
+        android:icon="@drawable/icon_home2"
         android:title="" />
     <item
         android:id="@+id/tab2"
@@ -15,10 +15,10 @@
         android:title="" />
     <item
         android:id="@+id/tab4"
-        android:icon="@drawable/social_media"
+        android:icon="@drawable/icon_sns2"
         android:title="" />
     <item
         android:id="@+id/tab5"
-        android:icon="@drawable/send"
+        android:icon="@drawable/icon_chat2"
         android:title="" />
 </menu>

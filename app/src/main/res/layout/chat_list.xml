@@ -3,74 +3,113 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:padding="2dp">
 
 
-<!--    <de.hdodenhof.circleimageview.CircleImageView-->
-<!--        android:id="@+id/circle_iv"-->
-<!--        android:layout_width="300dp"-->
-<!--        android:layout_height="300dp"-->
-<!--        android:layout_gravity="center"-->
-<!--        android:background="@android:color/transparent"-->
-<!--        app:civ_border_overlay="true"-->
-<!--        app:civ_border_width="5dp"-->
-<!--        app:civ_border_color="#000000"-->
-<!--        android:src="@drawable/test_img"-->
-<!--        />-->
+    <!--    <de.hdodenhof.circleimageview.CircleImageView-->
+    <!--        android:id="@+id/circle_iv"-->
+    <!--        android:layout_width="300dp"-->
+    <!--        android:layout_height="300dp"-->
+    <!--        android:layout_gravity="center"-->
+    <!--        android:background="@android:color/transparent"-->
+    <!--        app:civ_border_overlay="true"-->
+    <!--        app:civ_border_width="5dp"-->
+    <!--        app:civ_border_color="#000000"-->
+    <!--        android:src="@drawable/test_img"-->
+    <!--        />-->
 
-    <ImageView
-        android:id="@+id/imgChat"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="center_vertical"
+        app:cardCornerRadius="50dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/img_contact1" />
+        app:layout_constraintTop_toTopOf="@+id/tvChatOtherMsg">
+
+        <ImageView
+            android:id="@+id/imgChat"
+            android:layout_width="42dp"
+            android:layout_height="match_parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/img_contact1" />
+    </androidx.cardview.widget.CardView>
+
+<!--
+    <androidx.cardview.widget.CardView
+                    android:id="@+id/cardView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="16dp"
+                    app:cardCornerRadius="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <ImageView
+                        android:id="@+id/qq"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginLeft="24dp"
+                        android:layout_marginTop="32dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/vegi4" />
+                    -->
 
     <TextView
         android:id="@+id/tvChatOtherName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="4dp"
         android:text="상대방"
         android:textSize="16sp"
-        app:layout_constraintStart_toEndOf="@+id/imgChat"
-        app:layout_constraintTop_toTopOf="@+id/imgChat" />
+        app:layout_constraintStart_toEndOf="@+id/cv"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tvChatOtherMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
         android:background="@drawable/left_talk"
         android:paddingLeft="16dp"
+        android:paddingTop="4dp"
         android:paddingRight="16dp"
+        android:paddingBottom="4dp"
         android:text="ㅎㅎㅎㅎㅎㅎㅎㅎ"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="@+id/tvChatOtherName"
+        android:textColor="#000000"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@+id/cv"
         app:layout_constraintTop_toBottomOf="@+id/tvChatOtherName" />
 
     <TextView
         android:id="@+id/tvChatMyMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="4dp"
         android:background="@drawable/right_talk"
         android:paddingLeft="16dp"
+        android:paddingTop="4dp"
         android:paddingRight="16dp"
+        android:paddingBottom="4dp"
+        android:shadowColor="#FFFFFF"
         android:text="ㅎㅎㅎㅎ"
-        android:textSize="24sp"
+        android:textColor="#000000"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView13"
+        android:id="@+id/tvNum4"
         android:layout_width="410dp"
-        android:layout_height="wrap_content"
+        android:layout_height="1dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"

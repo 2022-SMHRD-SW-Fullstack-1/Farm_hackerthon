@@ -1,7 +1,9 @@
 package com.example.ex221210
 
 
+import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.FrameLayout
@@ -26,27 +28,105 @@ class MainActivity : AppCompatActivity() {
 
         val fl = findViewById<FrameLayout>(R.id.fl)
         val bnv = findViewById<BottomNavigationView>(R.id.bnv)
-        val imgLogout = findViewById<ImageView>(R.id.imgLogout)
+//        val imgLogout = findViewById<ImageView>(R.id.imgLogout)
 
         // 로그아웃 기능
-        imgLogout.setOnClickListener{
-            auth.signOut()
-            // 로그아웃 하고 나면 IntroActivity로 이동
-            val intent = Intent(this, IntroActivity::class.java)
-            // 이전에 쌓여있는 Activity를 모두 날려주기
-            // finish()는 하나만 날림
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-            startActivity(intent)
+//        imgLogout.setOnClickListener{
+//            auth.signOut()
+//            // 로그아웃 하고 나면 IntroActivity로 이동
+//            val intent = Intent(this, IntroActivity::class.java)
+//            // 이전에 쌓여있는 Activity를 모두 날려주기
+//            // finish()는 하나만 날림
+//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+//            startActivity(intent)
+//        }
+
+        val seedSpf = this.getSharedPreferences(
+            "seed",
+            Context.MODE_PRIVATE
+        )
+        val seedInfo= seedSpf.getString("seed","")as String
+
+
+
+
+        // 초기화면 NonSeedFragment 설정
+        supportFragmentManager.beginTransaction().replace(
+            R.id.fl,
+            NonSeedFragment()
+        ).commit()
+
+
+
+
+
+
+
+
+
+        val diarySpf = this.getSharedPreferences(
+            "diary",
+            Context.MODE_PRIVATE
+        )
+        val diaryInfo= diarySpf.getString("diary","")as String
+
+        if(seedInfo=="go"){
+
+            var editor = seedSpf.edit()
+            editor.putString("seed","")
+            editor.commit()
+
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fl,
+                Fragment2()
+            ).commit()
+        }else if(intent.getStringExtra("seedInfo")!=null){
+
+                val spf = getSharedPreferences(
+                    "seedInfo",
+                    Context.MODE_PRIVATE
+                )
+                val editor = spf.edit()
+                editor.putString("mySeed",intent.getStringExtra("seedInfo"))
+                editor.commit()
+
+                supportFragmentManager.beginTransaction().replace(
+                    R.id.fl,
+                    ChatFragment()
+                ).commit()
+            }else if(diaryInfo=="diary"){
+
+            var editor = diarySpf.edit()
+            editor.putString("diary","")
+            editor.commit()
+
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fl,
+                CurrentFragment()
+            ).commit()
+        }else if(intent.getStringExtra("firstSeed")=="ok"){
+
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fl,
+                Fragment1()
+            ).commit()
+        }else{
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fl,
+                NonSeedFragment()
+            ).commit()
         }
 
 
-        // 초기화면 Fragment1로 설정
-        supportFragmentManager.beginTransaction().replace(
-            R.id.fl,
-            Fragment1()
-        ).commit()
-        
-        
+
+
+        val imgProfile = findViewById<ImageView>(R.id.imgProfile)
+
+
+        imgProfile.setOnClickListener {
+            val intent = Intent(this, StateActivity::class.java)
+            startActivity(intent)
+        }
 
         // auth에 담겨있는 기능
         // createUsersWithEmailandPassword : 회원가입 (email, pw)
@@ -73,13 +153,13 @@ class MainActivity : AppCompatActivity() {
                 R.id.tab3 ->{
                     supportFragmentManager.beginTransaction().replace(
                         R.id.fl,
-                        Fragment3()
+                        Fragment4()
                     ).commit()
                 }
                 R.id.tab4 ->{
                     supportFragmentManager.beginTransaction().replace(
                         R.id.fl,
-                        Fragment4()
+                        Fragment3()
                     ).commit()
                 }
                 R.id.tab5 ->{

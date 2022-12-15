@@ -4,58 +4,122 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="#81FFFFFF"
     tools:context=".fragment.Fragment1">
 
-    <!--    <TextView-->
-    <!--        android:id="@+id/textView"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="50dp"-->
-    <!--        android:background="@android:color/transparent"-->
-    <!--        android:gravity="bottom|center_horizontal"-->
-    <!--        android:text="토마토"-->
-    <!--        android:textColor="#FFFFFF"-->
-    <!--        android:textSize="32sp" />-->
 
-    <!--    <com.airbnb.lottie.LottieAnimationView-->
-    <!--        android:id="@+id/animationView2"-->
-    <!--        android:layout_width="match_parent"-->
-    <!--        android:layout_height="451dp"-->
-    <!--        android:layout_marginTop="100dp"-->
-    <!--        android:scaleType="centerCrop"-->
-    <!--        app:lottie_autoPlay="true"-->
-    <!--        app:lottie_loop="false"-->
-    <!--        app:lottie_rawRes="@raw/plant_loding"-->
-    <!--        app:lottie_speed="0.4" />-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/animationView"
+            android:layout_width="314dp"
+            android:layout_height="304dp"
+            android:layout_marginBottom="40dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.494"
+            app:layout_constraintStart_toStartOf="parent"
+            app:lottie_autoPlay="true"
+            app:lottie_loop="false"
+            app:lottie_rawRes="@raw/plant5" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="0dp"
+            android:layout_height="70dp"
+            android:background="#8A3F1C"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tvPercent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:gravity="center_horizontal|top"
+            android:shadowColor="#FFFFFF"
+            android:text="0%"
+            android:textColor="#FFFFFF"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/animationView"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="@+id/animationView"
+            app:layout_constraintTop_toTopOf="@+id/textView12" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/playfairdisplayregular"
+            android:text="심은 날짜"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="40dp"
+            android:fontFamily="@font/playfairdisplayregular"
+            android:text="예상 수확일"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvToday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarket_sans_light"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@+id/textView10"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <TextView
+            android:id="@+id/tvHarvest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/gmarket_sans_light"
+            android:text="TextView"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/textView11"
+            app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+        <TextView
+            android:id="@+id/tvMainTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="80dp"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/gmarket_sans_medium"
+            android:gravity="bottom|center_horizontal"
+            android:text="토마토"
+            android:textColor="@color/subGreen"
+            android:textSize="32sp"
+            app:layout_constraintBottom_toTopOf="@+id/animationView"
+            app:layout_constraintEnd_toEndOf="@+id/tvPercent"
+            app:layout_constraintStart_toStartOf="@+id/tvPercent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-    <!--    <com.airbnb.lottie.LottieAnimationView-->
-    <!--        android:id="@+id/animationView"-->
-    <!--        android:layout_width="316dp"-->
-    <!--        android:layout_height="304dp"-->
-    <!--        android:layout_marginLeft="50dp"-->
-    <!--        android:layout_marginTop="150dp"-->
-    <!--        android:scaleType="centerCrop"-->
-    <!--        app:lottie_autoPlay="true"-->
-    <!--        app:lottie_loop="false"-->
-    <!--        app:lottie_rawRes="@raw/plant5" />-->
-
-    <!--    <TextView-->
-    <!--        android:id="@+id/tvPercent"-->
+    <!--    <ImageView-->
+    <!--        android:id="@+id/imageView2"-->
     <!--        android:layout_width="match_parent"-->
     <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="50dp"-->
-    <!--        android:gravity="center_horizontal|top"-->
-    <!--        android:text="0%"-->
-    <!--        android:textColor="#FFFFFF"-->
-    <!--        android:textSize="24sp" />-->
-    <!--    애니메이션 이미지-->
-
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        android:src="@drawable/background2" />
+    <!--        android:scaleType="centerCrop"-->
+    <!--        android:src="@drawable/background2" />-->
 </FrameLayout>

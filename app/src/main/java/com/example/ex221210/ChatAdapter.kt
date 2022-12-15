@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 
 class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val loginId:String) : RecyclerView.Adapter<ChatAdapter.ViewHolder>() {
@@ -16,12 +17,14 @@ class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val login
         val tvChatOtherName : TextView
         val tvChatOtherMsg : TextView
         val tvChatMyMsg : TextView
+        val cv : CardView
 
         init {
             imgChat = itemView.findViewById(R.id.imgChat)
             tvChatOtherName = itemView.findViewById(R.id.tvChatOtherName)
             tvChatOtherMsg = itemView.findViewById(R.id.tvChatOtherMsg)
             tvChatMyMsg = itemView.findViewById(R.id.tvChatMyMsg)
+            cv = itemView.findViewById(R.id.cv)
         }
 
     }
@@ -43,6 +46,7 @@ class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val login
             holder.imgChat.visibility = View.GONE
             holder.tvChatOtherName.visibility = View.GONE
             holder.tvChatOtherMsg.visibility = View.GONE
+            holder.cv.visibility = View.GONE
 
             holder.tvChatMyMsg.visibility = View.VISIBLE
 //            holder.tvChatMyMsg.setBackgroundResource(R.drawable.rightbubble)
@@ -58,6 +62,7 @@ class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val login
             holder.imgChat.visibility = View.VISIBLE
             holder.tvChatOtherName.visibility = View.VISIBLE
             holder.tvChatOtherMsg.visibility = View.VISIBLE
+            holder.cv.visibility = View.VISIBLE
 
 //            holder.tvChatOtherMsg.setBackgroundResource(R.drawable.leftbubble)
             // VISIBLE인 값은 설정해주자

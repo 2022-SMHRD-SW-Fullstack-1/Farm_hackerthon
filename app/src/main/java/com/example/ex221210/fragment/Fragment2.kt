@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import androidx.cardview.widget.CardView
 import com.example.ex221210.MainMapActivity
 import com.example.ex221210.MapSplashActivity
 import com.example.ex221210.R
@@ -20,12 +21,27 @@ class Fragment2 : Fragment() {
         // Inflate the layout for this fragment
         val view = inflater.inflate(R.layout.fragment_2, container, false)
 
-        val btnFruit = view.findViewById<Button>(R.id.btnFruit)
-        val btnVegi = view.findViewById<Button>(R.id.btnVegi)
-        val btnFlower = view.findViewById<Button>(R.id.btnFlower)
 
-        btnVegi.setOnClickListener {
+        val cvVegi = view.findViewById<CardView>(R.id.cvVegi)
+        val cvFlower = view.findViewById<CardView>(R.id.cvFlower)
+        val cvFruit = view.findViewById<CardView>(R.id.cvFruit)
+        val cvTree = view.findViewById<CardView>(R.id.cvTree)
 
+
+        cvVegi.setOnClickListener {
+
+            val intent = Intent(requireContext(),MapSplashActivity::class.java)
+            startActivity(intent)
+        }
+        cvFlower.setOnClickListener {
+            val intent = Intent(requireContext(),MapSplashActivity::class.java)
+            startActivity(intent)
+        }
+        cvFruit.setOnClickListener {
+            val intent = Intent(requireContext(),MapSplashActivity::class.java)
+            startActivity(intent)
+        }
+        cvTree.setOnClickListener {
             val intent = Intent(requireContext(),MapSplashActivity::class.java)
             startActivity(intent)
         }

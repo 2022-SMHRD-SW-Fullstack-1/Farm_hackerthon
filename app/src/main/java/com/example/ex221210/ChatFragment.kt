@@ -72,13 +72,25 @@ class ChatFragment : Fragment() {
             etChat.text = null
         }
 
+        val seedSpf = activity?.getSharedPreferences(
+            "seedInfo",
+            Context.MODE_PRIVATE
+        )
+        val seedInfo = seedSpf?.getString("mySeed","") as String
+        if(seedInfo!=""){
+            val chat = ChatVO(loginId, seedInfo)
+            chatRef.push().setValue(chat)
+        }
+
         chatRef.addChildEventListener(object : ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
 
                 val chatItem = snapshot.getValue<ChatVO>() as ChatVO
                 chatList.add(chatItem)
                 adapter.notifyDataSetChanged()
-
+                val editor = seedSpf.edit()
+                editor.putString("mySeed","")
+                editor.commit()
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {

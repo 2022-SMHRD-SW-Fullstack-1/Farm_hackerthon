@@ -10,8 +10,8 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.ex221210.R
-import com.example.ex221210.sns.SnsAdapter
 import com.example.ex221210.sns.SnsInsideActivity
+import com.example.ex221210.sns.SnsAdapter
 import com.example.ex221210.sns.SnsVO
 import com.example.ex221210.sns.SnsWriteActivity
 import com.example.ex221210.utils.FBdatabase
@@ -25,6 +25,7 @@ class Fragment4 : Fragment() {
     var boardList = ArrayList<SnsVO>()
     lateinit var adapter: SnsAdapter
     var keyData = ArrayList<String>()
+    var bookmarkList = ArrayList<String>()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?
@@ -46,20 +47,19 @@ class Fragment4 : Fragment() {
         //1. 한칸에 들어갈 디자인 만들기(board_list.xml)
         //2. adapter에 보낼 데이터 가져오기
         //firebase에 있는 board 경로에 있는 데이터를 가저오기
+        getBookmarkData()
         getBoardData()
         //3. Adatper 만들기(data)
-        adapter = SnsAdapter(requireContext(), boardList)
+        adapter = SnsAdapter(requireContext(), boardList,keyData, bookmarkList)
 
         //클릭 이벤트를 호출
         adapter.setOnItemClickListener(object : SnsAdapter.OnItemClickListener{
             override fun onItemClick(view: View, position: Int) {
-                // 너무 복잡하다..
-                // BoardInsideAtivity로 넘어가자
                 val intent = Intent(requireContext(),
                     SnsInsideActivity::class.java)
                 intent.putExtra("title", boardList[position].title)
-                intent.putExtra("title", boardList[position].time)
-                intent.putExtra("title", boardList[position].content)
+                intent.putExtra("time", boardList[position].time)
+                intent.putExtra("content", boardList[position].content)
                 intent.putExtra("key",keyData[position])
                 startActivity(intent)
             }
@@ -90,6 +90,32 @@ class Fragment4 : Fragment() {
                 }
                 //adapter를 새로고침
                 boardList.reverse()
+//                keyData.reverse()
+                adapter.notifyDataSetChanged()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                //오류가 발생했을 경우 실행되는 함수
+            }
+
+        }
+
+        //board에 있는 모든~~ 데이터가 들어간다~
+        FBdatabase.getSnsRef().addValueEventListener(postListener)
+    }
+
+    fun getBookmarkData(){
+        val bookmarkListener = object: ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (model in snapshot.children){
+                    val item = model.getValue(SnsVO::class.java)
+                    if(item!=null){
+                        boardList.add(item)
+                    }
+                    keyData.add(model.key.toString())
+                }
+                //adapter를 새로고침
+                boardList.reverse()
                 keyData.reverse()
                 adapter.notifyDataSetChanged()
             }
@@ -99,8 +125,8 @@ class Fragment4 : Fragment() {
             }
 
         }
-        //board에 있는 모든~~ 데이터가 들어간다~
-        FBdatabase.getSnsRef().addValueEventListener(postListener)
+        FBdatabase.getBookmarkRef().addValueEventListener(bookmarkListener)
+
     }
 
 }
