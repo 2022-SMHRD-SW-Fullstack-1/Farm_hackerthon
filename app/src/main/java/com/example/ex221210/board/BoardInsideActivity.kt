@@ -77,8 +77,8 @@ class BoardInsideActivity : AppCompatActivity() {
         val writerUid = FBAuth.getUid()
 
         // 게시물의 uid와 현재 로그인한 사용자의 uid를 비교해 수정, 삭제버튼 활성화
-        btnEdit.isEnabled = writerUid.equals(FBAuth.getUid())
-        btnDelete.isEnabled = writerUid.equals(FBAuth.getUid())
+        btnEdit.isEnabled = writerUid.equals(uid)
+        btnDelete.isEnabled = writerUid.equals(uid)
 
         // 리스트뷰 어댑터 연결 (댓글 목록)
         commentLVAdapter = CommentLVAdapter(commentList)

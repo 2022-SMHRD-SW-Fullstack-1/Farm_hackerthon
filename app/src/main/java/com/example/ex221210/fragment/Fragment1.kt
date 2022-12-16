@@ -10,10 +10,13 @@ import android.os.CountDownTimer
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.TextView
 import androidx.fragment.app.Fragment
+import com.airbnb.lottie.LottieAnimationView
 import com.example.ex221210.MainActivity
 import com.example.ex221210.R
+import com.example.ex221210.sns.ListActivity
 import kotlinx.android.synthetic.main.fragment_1.view.*
 import kotlinx.android.synthetic.main.sns_template.view.*
 import java.text.SimpleDateFormat
@@ -38,18 +41,44 @@ class Fragment1 : Fragment() {
         var currentTime = getTime()
 
 
+
         var view = inflater.inflate(R.layout.fragment_1, container, false)
+
+        var btnNow = view.findViewById<Button>(R.id.btnNow)
+
+        val loginSpf = requireContext().getSharedPreferences(
+            "loginInfo",
+            Context.MODE_PRIVATE
+        )
+        val loginId = loginSpf?.getString("loginId", "null") as String
+
+        btnNow.setOnClickListener {
+            var msgNow = loginId+"님이 토마토 지금 받기를 신청하셨습니다"
+            val nowSpf = requireContext().getSharedPreferences(
+                "now",
+                Context.MODE_PRIVATE
+            )
+            val editor = nowSpf.edit()
+            editor.putString("now",msgNow)
+            editor.commit()
+
+            var intent = Intent(requireContext(),MainActivity::class.java)
+            startActivity(intent)
+            activity?.finish()
+
+        }
+
 //        var animationView2 = view.findViewById<LottieAnimationView>(R.id.animationView2)
         var tvPercent = view.findViewById<TextView>(R.id.tvPercent)
         var zeroToHun = 0
 
         var tvToday = view.findViewById<TextView>(R.id.tvToday)
         // 심은 날짜
-        tvToday.text = "2022/11/15"
+//        tvToday.text = "2022/11/15"
         var tvHarvest = view.findViewById<TextView>(R.id.tvHarvest)
         // 오늘 날짜
-//        tvToday.text = currentTime
-        tvHarvest.text = "2023/02/02"
+        tvToday.text = currentTime
+        tvHarvest.text = "2023/04/02"
 
 //        val handler = Handler(Looper.getMainLooper())
 //        val runnable = Runnable{
@@ -59,7 +88,7 @@ class Fragment1 : Fragment() {
 
         val countDownTimer1 = object : CountDownTimer(4000,30){
             override fun onTick(p0: Long) {
-                if(zeroToHun<=60){
+                if(zeroToHun<=1){
                 tvPercent.text = zeroToHun.toString()+"%"
                 zeroToHun++
                 }
@@ -70,9 +99,10 @@ class Fragment1 : Fragment() {
         countDownTimer1.start()
 
 
+        val avMainTitle = view.findViewById<LottieAnimationView>(R.id.avMainTitle)
 
         val tvMainTitle = view.findViewById<TextView>(com.example.ex221210.R.id.tvMainTitle)
-        tvMainTitle.setOnClickListener{
+        avMainTitle.setOnClickListener{
 
             val spf = requireContext().getSharedPreferences(
                 "diary",
@@ -82,7 +112,7 @@ class Fragment1 : Fragment() {
             editor.putString("diary","diary")
             editor.commit()
 
-            var intent = Intent(requireContext(),MainActivity::class.java)
+            var intent = Intent(requireContext(),ListActivity::class.java)
             startActivity(intent)
             activity?.finish()
         }

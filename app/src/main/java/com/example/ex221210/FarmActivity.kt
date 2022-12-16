@@ -31,7 +31,7 @@ class FarmActivity : AppCompatActivity() {
         val tvTitle5 = findViewById<TextView>(R.id.tvTitle5)
         val tvTitle6 = findViewById<TextView>(R.id.tvTitle6)
         tvTitle1.text = "양배추"
-        tvTitle2.text = "피망"
+        tvTitle2.text = "토마토"
         tvTitle3.text = "적양파"
         tvTitle4.text = "당근"
         tvTitle5.text = "옥수수"

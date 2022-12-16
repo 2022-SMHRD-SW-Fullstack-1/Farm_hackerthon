@@ -183,13 +183,13 @@
 
                     <ImageView
                         android:id="@+id/imageView8"
-                        android:layout_width="150dp"
-                        android:layout_height="150dp"
+                        android:layout_width="240dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center_vertical"
                         android:layout_marginLeft="24dp"
                         android:layout_marginTop="32dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/vegi10" />
+                        android:src="@drawable/vegi9" />
 
                     <TextView
                         android:id="@+id/textView4"
@@ -206,7 +206,7 @@
                         android:layout_marginLeft="8dp"
                         android:layout_marginTop="8dp"
                         android:fontFamily="sans-serif"
-                        android:text="피망"
+                        android:text="토마토"
                         android:textColor="#494949"
                         android:textSize="18sp" />
 

@@ -19,7 +19,6 @@ class StateActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStateBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         fun logout() {
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, LoginActivity::class.java)
@@ -27,12 +26,9 @@ class StateActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
-
         binding.tvSettingLogout.setOnClickListener {
             logout()
-
         }
-
         binding.tvSettingDelete.setOnClickListener {
             FirebaseAuth.getInstance().currentUser!!.delete().addOnCompleteListener { task ->
                 if(task.isSuccessful){

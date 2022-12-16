@@ -9,10 +9,10 @@
         android:id="@+id/tab2"
         android:icon="@drawable/sprout"
         android:title="" />
-    <item
-        android:id="@+id/tab3"
-        android:icon="@drawable/book"
-        android:title="" />
+<!--    <item-->
+<!--        android:id="@+id/tab3"-->
+<!--        android:icon="@drawable/book"-->
+<!--        android:title="" />-->
     <item
         android:id="@+id/tab4"
         android:icon="@drawable/icon_sns2"

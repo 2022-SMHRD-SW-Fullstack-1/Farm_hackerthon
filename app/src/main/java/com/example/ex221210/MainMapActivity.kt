@@ -64,8 +64,8 @@ class MainMapActivity : AppCompatActivity(),OnMapReadyCallback  {
 //         마커 더하기
 //        var markerOptions : MarkerOptions = MarkerOptions().position(latLng).title("현 위치")
         var markerOptions1 : MarkerOptions = MarkerOptions().position(latLng1).title("성준 농장 ★4.5").snippet("대표 작물 : 토마토")
-        var markerOptions2 : MarkerOptions = MarkerOptions().position(latLng2).title("정우 농장 ★4.5").snippet("대표 작물 : 양배추")
-        var markerOptions3 : MarkerOptions = MarkerOptions().position(latLng3).title("혜원 농장 ★4.5").snippet("대표 작물 : 상추")
+        var markerOptions2 : MarkerOptions = MarkerOptions().position(latLng2).title("정우 농장 ★4.5").snippet("대표 작물 : 가지")
+        var markerOptions3 : MarkerOptions = MarkerOptions().position(latLng3).title("혜원 농장 ★4.5").snippet("대표 작물 : 양배추")
         var markerOptions4 : MarkerOptions = MarkerOptions().position(latLng4).title("연주 농장 ★4.5").snippet("대표 작물 : 당근")
 
 

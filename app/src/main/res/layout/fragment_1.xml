@@ -13,7 +13,7 @@
         android:layout_height="match_parent">
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/animationView"
+            android:id="@+id/avMainTitle"
             android:layout_width="314dp"
             android:layout_height="304dp"
             android:layout_marginBottom="40dp"
@@ -24,7 +24,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:lottie_autoPlay="true"
             app:lottie_loop="false"
-            app:lottie_rawRes="@raw/plant5" />
+            app:lottie_rawRes="@raw/plant2" />
 
         <TextView
             android:id="@+id/textView12"
@@ -46,9 +46,9 @@
             android:textColor="#FFFFFF"
             android:textSize="32sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/animationView"
+            app:layout_constraintEnd_toEndOf="@+id/avMainTitle"
             app:layout_constraintHorizontal_bias="0.501"
-            app:layout_constraintStart_toStartOf="@+id/animationView"
+            app:layout_constraintStart_toStartOf="@+id/avMainTitle"
             app:layout_constraintTop_toTopOf="@+id/textView12" />
 
         <TextView
@@ -110,9 +110,20 @@
             android:text="토마토"
             android:textColor="@color/subGreen"
             android:textSize="32sp"
-            app:layout_constraintBottom_toTopOf="@+id/animationView"
+            app:layout_constraintBottom_toTopOf="@+id/avMainTitle"
             app:layout_constraintEnd_toEndOf="@+id/tvPercent"
             app:layout_constraintStart_toStartOf="@+id/tvPercent" />
+
+        <Button
+            android:id="@+id/btnNow"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/green_btn"
+            android:text="지금 받기"
+            app:layout_constraintEnd_toEndOf="@+id/tvMainTitle"
+            app:layout_constraintStart_toStartOf="@+id/tvMainTitle"
+            app:layout_constraintTop_toBottomOf="@+id/tvMainTitle" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 

@@ -80,6 +80,22 @@ class ChatFragment : Fragment() {
         if(seedInfo!=""){
             val chat = ChatVO(loginId, seedInfo)
             chatRef.push().setValue(chat)
+            val editor = seedSpf.edit()
+            editor.putString("mySeed","")
+            editor.commit()
+        }
+
+        val nowSpf = activity?.getSharedPreferences(
+            "now",
+            Context.MODE_PRIVATE
+        )
+        val nowInfo = nowSpf?.getString("now","") as String
+        if(nowInfo.length>1){
+            val chat = ChatVO(loginId, nowInfo)
+            chatRef.push().setValue(chat)
+            val editor = nowSpf.edit()
+            editor.putString("now","")
+            editor.commit()
         }
 
         chatRef.addChildEventListener(object : ChildEventListener {
@@ -87,10 +103,10 @@ class ChatFragment : Fragment() {
 
                 val chatItem = snapshot.getValue<ChatVO>() as ChatVO
                 chatList.add(chatItem)
+                // 채팅창 아래로 내리기
+                rvChat.scrollToPosition(chatList.size-1)
                 adapter.notifyDataSetChanged()
-                val editor = seedSpf.edit()
-                editor.putString("mySeed","")
-                editor.commit()
+
             }
 
             override fun onChildChanged(snapshot: DataSnapshot, previousChildName: String?) {

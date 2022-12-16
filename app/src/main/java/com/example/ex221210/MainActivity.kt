@@ -6,8 +6,10 @@ import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.FrameLayout
 import android.widget.ImageView
+import android.widget.Toast
 import com.example.ex221210.auth.IntroActivity
 import com.example.ex221210.fragment.*
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -59,8 +61,11 @@ class MainActivity : AppCompatActivity() {
 
 
 
-
-
+        val nowSpf = this.getSharedPreferences(
+            "now",
+            Context.MODE_PRIVATE
+        )
+        val nowInfo = nowSpf.getString("now","") as String
 
 
 
@@ -80,21 +85,30 @@ class MainActivity : AppCompatActivity() {
                 R.id.fl,
                 Fragment2()
             ).commit()
-        }else if(intent.getStringExtra("seedInfo")!=null){
+        }else if(nowInfo.length>0){
+
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fl,
+                ChatFragment()
+            ).commit()
+
+
+        } else if(intent.getStringExtra("seedInfo").toString().length>0&& intent.getStringExtra("seedInfo")!=null){
 
                 val spf = getSharedPreferences(
                     "seedInfo",
                     Context.MODE_PRIVATE
-                )
-                val editor = spf.edit()
-                editor.putString("mySeed",intent.getStringExtra("seedInfo"))
-                editor.commit()
+            )
+            val editor = spf.edit()
+            editor.putString("mySeed",intent.getStringExtra("seedInfo"))
+            editor.commit()
 
-                supportFragmentManager.beginTransaction().replace(
-                    R.id.fl,
-                    ChatFragment()
-                ).commit()
-            }else if(diaryInfo=="diary"){
+            supportFragmentManager.beginTransaction().replace(
+                R.id.fl,
+                ChatFragment()
+            ).commit()
+        }
+        else if(diaryInfo=="diary"){
 
             var editor = diarySpf.edit()
             editor.putString("diary","")
@@ -104,7 +118,8 @@ class MainActivity : AppCompatActivity() {
                 R.id.fl,
                 CurrentFragment()
             ).commit()
-        }else if(intent.getStringExtra("firstSeed")=="ok"){
+        }
+        else if(intent.getStringExtra("firstSeed")=="ok"){
 
             supportFragmentManager.beginTransaction().replace(
                 R.id.fl,
@@ -150,12 +165,12 @@ class MainActivity : AppCompatActivity() {
                         Fragment2()
                     ).commit()
                 }
-                R.id.tab3 ->{
-                    supportFragmentManager.beginTransaction().replace(
-                        R.id.fl,
-                        Fragment4()
-                    ).commit()
-                }
+//                R.id.tab3 ->{
+//                    supportFragmentManager.beginTransaction().replace(
+//                        R.id.fl,
+//                        Fragment4()
+//                    ).commit()
+//                }
                 R.id.tab4 ->{
                     supportFragmentManager.beginTransaction().replace(
                         R.id.fl,

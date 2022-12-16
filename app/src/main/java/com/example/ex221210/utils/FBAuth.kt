@@ -1,6 +1,5 @@
 package com.example.ex221210.utils
 
-
 import com.google.firebase.auth.FirebaseAuth
 import java.text.SimpleDateFormat
 import java.util.*

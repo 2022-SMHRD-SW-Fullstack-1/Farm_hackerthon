@@ -66,7 +66,7 @@ class ChatAdapter(val context:Context, val chatList:ArrayList<ChatVO>, val login
 
 //            holder.tvChatOtherMsg.setBackgroundResource(R.drawable.leftbubble)
             // VISIBLE인 값은 설정해주자
-            holder.imgChat.setImageResource(R.drawable.img_contact1)
+            holder.imgChat.setImageResource(R.drawable.farmer)
             holder.tvChatOtherName.setText(chatList.get(position).name)
             holder.tvChatOtherMsg.setText(chatList.get(position).msg)
 
